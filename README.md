@@ -1,13 +1,13 @@
 # Índice
 
 1. [Requisitos de Desenvolvimento](#requisitos-de-desenvolvimento )
-2. [Rodando a aplicação em Desenvolvimento](#rodando-a-aplicacao-em-desenvolvimento )
-3. [Instalando serviço pelo System V Init](#Instalando-servico-pelo-system-v-init)
+2. [Rodando a aplicação em Desenvolvimento](#rodando-a-aplicação-em-desenvolvimento )
+3. [Swagger](#swagger)
 4. [Arquitetura Hexagonal](#arquitetura-hexagonal)
 
 ## Requisitos de Desenvolvimento
 
-| Descrição     | Versão			  | 
+|Descrição      |Versão 		    | 
 |---------------|-------------------|
 | Java OpenJDK  | 17                |
 | Gradle        | 8.2.1 ou superior |
@@ -22,26 +22,13 @@ Faça o pull do repositório e no diretório principal execute `./gradlew clean 
 
 Apoś fazer a construção do projeto execute `./gradlew bootRun` . O gradlew irá roda a aplicação executando o liquibase para criar as tabelas em memória no banco de dados H2.
 
+## Swagger
 
-
-## Instalando serviço pelo System V Init
-
-Para instalar a API como um serviço `init.b`, crie um link simbólico da seguinte forma;
-```
-$ sudo ln -s /home/user/deploy/integration-xls.jar /etc/init.d/integration-xls
-```
-
-Para instalar o link de script de inicialização:
+Para acessar o swagger basta levantar a aplicação e acessar o endereço:
 
 ```
-$ update-rc.d integration-xls defaults
+http://localhost:8080/swagger-ui/index.html
 ```
-Com o serviço instalado podemos utilizar os comandos  **start**,  **stop**,  **restart**  e  **status**  para manipulação a API
-
-```
-$ service integration-xls start | stop | restart | status
-```
-
 
 ## Arquitetura Hexagonal
 

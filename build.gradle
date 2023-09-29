@@ -32,12 +32,17 @@ subprojects {
 		sourceCompatibility = '17'
 	}
 
+	dependencies {
+		implementation 'org.projectlombok:lombok:1.18.30'
+		annotationProcessor 'org.projectlombok:lombok:1.18.30'
+	}
+
 }
 
 project(':entity') {
 	dependencies {
-		api 'org.projectlombok:lombok:1.18.30'
 		api 'org.springframework.boot:spring-boot-starter-data-jpa:3.1.4'
+		api ("com.github.dozermapper:dozer-core:6.5.2")
 	}
 }
 
@@ -48,8 +53,6 @@ project(':domain') {
 		api project(':entity')
 		api 'org.apache.poi:poi:3.12'
 		api 'org.apache.poi:poi-ooxml:3.12'
-
-		annotationProcessor project(':entity')
 	}
 }
 
@@ -57,13 +60,10 @@ project(':controller') {
 
 	dependencies {
 		implementation project(':domain')
-		annotationProcessor project(':domain')
-
 		implementation 'org.springframework.boot:spring-boot-starter-web:3.1.4'
 		testImplementation 'org.springframework.boot:spring-boot-starter-test:3.1.4'
+		implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
 		implementation 'org.liquibase:liquibase-core:4.23.2'
-
-
 	}
 
 	springBoot {

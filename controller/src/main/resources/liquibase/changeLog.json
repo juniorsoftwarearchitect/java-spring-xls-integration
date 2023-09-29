@@ -6,6 +6,13 @@
         "author":"Ademar Junior",
         "changes":[
           {
+            "createSequence": {
+              "sequenceName": "MOVIE_SEQ",
+              "incrementBy": "1",
+              "startValue": "1"
+            }
+          },
+          {
             "createTable":{
               "tableName":"movie",
               "columns":[
@@ -22,7 +29,7 @@
                 },
                 {
                   "column":{
-                    "name":"year",
+                    "name":"movie_year",
                     "type":"int"
                   }
                 },
@@ -47,7 +54,7 @@
                 {
                   "column":{
                     "name":"winner",
-                    "type":"varchar(255)"
+                    "type":"boolean"
                   }
                 }
               ]
